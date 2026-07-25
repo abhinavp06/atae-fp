@@ -27,3 +27,23 @@ Create a simple script which produces values which mimic a sine wave. The script
     1. Frequency is how many waves per second are generated. With this, it is clear that in 1 second, with the given rate of 44100, the number of cycles will be 100 (since frequency is 441).
     1. So, phase_increment = 2 * pi * frequency / sample_rate
     1. [AI Summarized Thought Process](./sine/AI_CONVERSATION_SUMMARY.md)
+### C++ Findings
+### C++ Findings
+1. `std::vector<T>(n)` value-initializes its elements (`0.0` for `double`).
+2. Prefer `std::vector` over variable-length arrays (VLAs); VLAs are not part of standard C++.
+3. Prefer `const T&` over passing large objects by value when only read access is needed.
+4. References use `.` to access members, pointers use `->`.
+5. `std::vector::size()` returns `std::size_t`, so use `std::size_t` for container sizes and indices.
+6. `std::vector::at()` performs bounds checking; `operator[]` does not.
+7. In performance-critical code, `operator[]` is preferred once index correctness has been established.
+8. `std::ofstream` creates files automatically but does not create missing directories.
+9. `std::ofstream` closes itself automatically when it goes out of scope (RAII).
+10. `std::ofstream::is_open()` can be used to verify that the file was opened successfully.
+11. A `void` function cannot return a value (e.g., `return 1;` is invalid).
+12. `std::format` and `std::numbers` require compiling with C++20 (`-std=c++20`).
+13. Dividing an integer by a `double` performs floating-point division automatically.
+14. Cache repeated calls like `samples.size()` in a local variable when they are used frequently.
+15. Pass containers directly instead of raw pointers unless `nullptr` is a meaningful state.
+16. Prefer `const` for values that never change (e.g., `phase_increment`).
+17. Use compiler warnings (`-Wall -Wextra -pedantic`) to catch non-portable or suspicious code early.
+18. A relative file path is resolved from the program's current working directory, not the source file's location.
