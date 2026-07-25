@@ -52,3 +52,14 @@ Same but a square wave this time.
 1. Pretty easy logic
 1. When phase is < pi samples should be +1 and when > pi -1. 
 1. Phase rotation works same as sine wave.
+### C++ Findings
+1. The `%` operator only works with integral types (`int`, `char`, `long`, etc.). It cannot be used with `float` or `double`.
+   1. This is because `%` is defined as the **integer remainder** operator.
+   2. For floating-point values, there isn't a natural notion of an integer remainder, since the quotient itself can also be a floating-point number. For example, `7.5 / 2.4 = 3.125`, so the remainder is mathematically `0`.
+   3. If you want the remainder after forcing the quotient to be an integer, use `std::fmod()`.
+## Idea 3 --- 25-07-2026 23:06 --- (Positive Black Soul - Respect the nubians)
+Same but a saw wave this time.
+### Implementation Notes
+1. Arrived at this: ![](./saw/01.png)
+1. Now I need to simply push it down by 3 (6 is the max)
+1. Then I realised I need to push it down by pi. So, I did. ![](./saw/02.png)
