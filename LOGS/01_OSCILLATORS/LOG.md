@@ -1,4 +1,4 @@
-# Introduction
+﻿# Introduction
 <b>--- 25-07-2026 10:59 SATURDAY ---</b>
 <br/><br/>
 Lately, while working on my "audio-tools-and-effects" library and learning about Audio DSP with Claude, I realised I was moving too fast. I have created this repository to slow down and relearn everything again. Use Google, documentations, etc.
@@ -64,3 +64,9 @@ Same but a saw wave this time.
 1. Now I need to simply push it down by 3 (6 is the max)
 1. Then I realised I need to push it down by pi. So, I did. ![](./saw/02.png)
 1. Eureka: sample value is literally mapping [0,2pi) -> [0,2) -> [-1,1)
+1. "Which side of the circle am I on?" - Square Wave
+1. "how far through one revolution you've travelled" - Saw Wave
+1. each oscillator is just a different answer to the second question:
+    1. Sine: "Take the y-coordinate."
+    1. Square: "Return one of two levels depending on which half of the cycle I'm in."
+    1. Sawtooth: "Return my progress through the cycle, mapped from [0, 2π) to [-1, 1)."
