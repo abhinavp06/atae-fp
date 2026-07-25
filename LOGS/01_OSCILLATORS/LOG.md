@@ -46,3 +46,9 @@ Create a simple script which produces values which mimic a sine wave. The script
 16. Prefer `const` for values that never change (e.g., `phase_increment`).
 17. Use compiler warnings (`-Wall -Wextra -pedantic`) to catch non-portable or suspicious code early.
 18. A relative file path is resolved from the program's current working directory, not the source file's location.
+## Idea 2 --- 25-07-2026 18:53 ---
+Same but a square wave this time.
+### Implementation Notes
+1. Pretty easy logic
+1. When phase is < pi samples should be +1 and when > pi -1. 
+1. Phase rotation works same as sine wave.
