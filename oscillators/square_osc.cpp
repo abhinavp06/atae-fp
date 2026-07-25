@@ -9,6 +9,7 @@
 const double SAMPLE_RATE = 100.0;
 const int WAVE_DURATION_S = 2;
 const double WAVE_FREQUENCY = 2.0;
+const double DUTY_CYCLE = 0.5;
 
 void generateCSV(const std::vector<double>& samples) {
 	std::string result = "time,amplitude\n";
@@ -37,11 +38,10 @@ int main() {
 	std::vector<double> samples(sample_count);
 
 	double phase = 0.0;
-	const double phase_increment = 2 * std::numbers::pi * WAVE_FREQUENCY / SAMPLE_RATE;
+	const double phase_increment = 2 * std::numbers::pi * WAVE_FREQUENCY / SAMPLE_RATE, threshold = DUTY_CYCLE * 2 * std::numbers::pi;
 
 	for (int i = 0; i < sample_count; i++) {
-		if (phase < std::numbers::pi) samples[i] = 1;
-		else samples[i] = -1;
+		samples[i] = (phase < threshold) ? 1.0 : -1.0;
 
 		phase += phase_increment;
 
