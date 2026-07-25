@@ -63,3 +63,4 @@ Same but a saw wave this time.
 1. Arrived at this: ![](./saw/01.png)
 1. Now I need to simply push it down by 3 (6 is the max)
 1. Then I realised I need to push it down by pi. So, I did. ![](./saw/02.png)
+1. Eureka: sample value is literally mapping [0,2pi) -> [0,2) -> [-1,1)

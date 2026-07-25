@@ -41,7 +41,7 @@ int main() {
 	const double phase_increment = 2 * std::numbers::pi * WAVE_FREQUENCY / SAMPLE_RATE, threshold = DUTY_CYCLE * 2 * std::numbers::pi;
 
 	for (int i = 0; i < sample_count; i++) {
-		samples[i] = (phase - std::numbers::pi) / std::numbers::pi;
+		samples[i] = phase / std::numbers::pi - 1;
 
 		phase += phase_increment;
 
