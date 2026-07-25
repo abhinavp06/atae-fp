@@ -28,7 +28,6 @@ Create a simple script which produces values which mimic a sine wave. The script
     1. So, phase_increment = 2 * pi * frequency / sample_rate
     1. [AI Summarized Thought Process](./sine/AI_CONVERSATION_SUMMARY.md)
 ### C++ Findings
-### C++ Findings
 1. `std::vector<T>(n)` value-initializes its elements (`0.0` for `double`).
 2. Prefer `std::vector` over variable-length arrays (VLAs); VLAs are not part of standard C++.
 3. Prefer `const T&` over passing large objects by value when only read access is needed.
