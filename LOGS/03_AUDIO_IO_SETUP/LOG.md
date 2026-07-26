@@ -32,6 +32,22 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
         1. First it was in the build directory's output directory. Changed it to the root output direcotry by the output paths in CMake (playground and test)
         1. Also forgot how to write a simple cout statement
         1. Figured out how to actually build with CMake and where and how my directories, sub directories, outputs and tests are located and created.
+1. 15.09 -> Initial idea: 
+    1. To implement an Audio Buffer i first need to know how audio is processed digitally. 
+    1. Why is it processed in buffers. 
+    1. Are there buffers in C++? 
+    1. How are buffers implemented in C++? 
+    1. Then finally merge everything to create an audio buffer class and integrate it with the current playground/ tests and the core classes.
+1. 15.12 -> How is Audio processed digitally? (Radikal Doodz - Definitely On)
+    1. Very basic concepts. Sampling, Quantization, etc. Move to next.
+1. 15.13 -> Why is it processed in buffers?
+    1. okay - basically time given to process data
+1. 15.14 -> C++ buffers
+    1. 15.16 -> Trying to find how to implement buffers made up of double values
+        1. it's just a vector of doubles
+1. 15.17 -> Audio Buffer Class
+    1. 15.21 -> I have the basdic properties down. Now I'm debating if I should expose the buffer via any methods? I mean I know I have to but I'm debating ways.
+    1. 
 ### C++ Findings
 1. `virtual` is used to define functions in a base class which are expected to be redefined in derived classes
 1. A base class with virtual functions should have a virtual destructor so derived objects are destroyed correctly through a base pointer.
