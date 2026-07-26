@@ -1,8 +1,9 @@
 #pragma once
 #include <vector>
 #include <atae_fp/oscillators/oscillator.h>
+#include <atae_fp/types/audio_buffer.h>
 
 class SawOscillator : public Oscillator {
 public:
-	std::vector<double> generate(double duration_s) override;
+	AudioBuffer generate(double duration_s) override;
 };

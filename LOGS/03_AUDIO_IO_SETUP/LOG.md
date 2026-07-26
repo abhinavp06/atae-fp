@@ -103,6 +103,7 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
                 instead of ``` output.save(OUTPUT_DIR "white_noise.wav", buffer, 44100.0); ```
             1. I didn't specify the file name. That's it.
         1. 21.00 -> This also means I don't need to maintain a variable for output strings anymore.. I can just do (OUTPUT_DIR file_name)
+    1. 21.03 -> Integrating it for saw, sine and square wave.
 
 ### C++ Findings
 1. `virtual` is used to define functions in a base class which are expected to be redefined in derived classes
