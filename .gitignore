@@ -2,7 +2,7 @@
 /.vs
 /build
 /out
-/output/*
+*/output/*
 !/output/.gitkeep
 *.wav
 *.lib

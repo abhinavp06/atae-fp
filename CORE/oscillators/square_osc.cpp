@@ -6,9 +6,10 @@
 #include <vector>
 #include <fstream>
 
-const double SAMPLE_RATE = 44100.0;
+const double SAMPLE_RATE = 100.0;
 const int WAVE_DURATION_S = 2;
-const double WAVE_FREQUENCY = 441.0;
+const double WAVE_FREQUENCY = 2.0;
+const double DUTY_CYCLE = 0.5;
 
 void generateCSV(const std::vector<double>& samples) {
 	std::string result = "time,amplitude\n";
@@ -20,7 +21,7 @@ void generateCSV(const std::vector<double>& samples) {
 		if (i != sample_count - 1) result += "\n";
 	}
 
-	std::ofstream output("./output/01_OSCILLATORS/sine/sine_wave.csv");
+	std::ofstream output("./CORE/output/01_OSCILLATORS/square/square_wave.csv");
 
 	if (!output.is_open()) {
 		std::cerr << "Error: Could not open the file!" << std::endl;
@@ -37,10 +38,11 @@ int main() {
 	std::vector<double> samples(sample_count);
 
 	double phase = 0.0;
-	const double phase_increment = 2 * std::numbers::pi * WAVE_FREQUENCY / SAMPLE_RATE;
+	const double phase_increment = 2 * std::numbers::pi * WAVE_FREQUENCY / SAMPLE_RATE, threshold = DUTY_CYCLE * 2 * std::numbers::pi;
 
 	for (int i = 0; i < sample_count; i++) {
-		samples[i] = std::sin(phase);
+		samples[i] = (phase < threshold) ? 1.0 : -1.0;
+
 		phase += phase_increment;
 
 		if (phase >= 2 * std::numbers::pi) phase -= 2 * std::numbers::pi;

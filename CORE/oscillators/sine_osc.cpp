@@ -5,11 +5,10 @@
 #include <format>
 #include <vector>
 #include <fstream>
-#include <chrono>
-#include <random>
 
-const double SAMPLE_RATE = 100;
+const double SAMPLE_RATE = 44100.0;
 const int WAVE_DURATION_S = 2;
+const double WAVE_FREQUENCY = 441.0;
 
 void generateCSV(const std::vector<double>& samples) {
 	std::string result = "time,amplitude\n";
@@ -21,7 +20,7 @@ void generateCSV(const std::vector<double>& samples) {
 		if (i != sample_count - 1) result += "\n";
 	}
 
-	std::ofstream output("./output/02_WHITE_NOISE/white_noise.csv");
+	std::ofstream output("./CORE/output/01_OSCILLATORS/sine/sine_wave.csv");
 
 	if (!output.is_open()) {
 		std::cerr << "Error: Could not open the file!" << std::endl;
@@ -37,12 +36,14 @@ int main() {
 	int sample_count = static_cast<int>(SAMPLE_RATE) * WAVE_DURATION_S;
 	std::vector<double> samples(sample_count);
 
-	std::mt19937 engine(std::random_device{}() ^ static_cast<unsigned>(std::chrono::high_resolution_clock::now().time_since_epoch().count()));
-
-	std::uniform_real_distribution<double> dist(-1.0, 1.0);
+	double phase = 0.0;
+	const double phase_increment = 2 * std::numbers::pi * WAVE_FREQUENCY / SAMPLE_RATE;
 
 	for (int i = 0; i < sample_count; i++) {
-		samples[i] = dist(engine);
+		samples[i] = std::sin(phase);
+		phase += phase_increment;
+
+		if (phase >= 2 * std::numbers::pi) phase -= 2 * std::numbers::pi;
 	}
 
 	generateCSV(samples);
