@@ -68,6 +68,12 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
                     1. 15.35 -> Verdict: Bare metal is nice.
     1. 15.42 -> There are so many patterns I can see with the class I am creating and how everything is declared. However, I will do this in my free time. TODO: Microoptimizing a class that I have implemented.
         1. Going back and forth with [ChatGPT Chat](https://chatgpt.com/share/6a65de78-66cc-83e8-9256-48eaee60e434) and it has a good argument for abstraction. TODO: Use this ChatGPT conversation as part of the microoptimization
+1.15.52 -> Integrating AudioBuffer with one of the implemented classes. Pick white noise for now.
+    1. 15.57 -> After some thinking, I looked into the atae repository's audio_buffer.h and realised that a struct makes more sense.
+        1. I could feel the resistance while trying to fit my AudioBuffer class into the White noise generator. A struct makes so much mroe sense.
+        1. It fits my "bare metal" and "freedom" approach too. 
+        1. Now I can either take a direction here of making this a well guarded libraryt or go bare metal right now with structs, later phase challenges and then refactor.
+        1. I choose the latter.
 ### C++ Findings
 1. `virtual` is used to define functions in a base class which are expected to be redefined in derived classes
 1. A base class with virtual functions should have a virtual destructor so derived objects are destroyed correctly through a base pointer.

@@ -2,12 +2,13 @@
 #include <vector>
 #include <chrono>
 #include <random>
+#include <atae_fp/types/audio_buffer.h>
 
 class WhiteNoise {
 public:
 	void setSampleRate(double sample_rate);
 	void setAmplitude(double amplitude);
-	std::vector<double> generate(const double duration_s);
+	AudioBuffer generate(const double duration_s);
 
 	WhiteNoise()
 		: engine_(
@@ -23,4 +24,5 @@ private:
 	double amplitude_ = 1.0;
 	std::mt19937 engine_;
 	std::uniform_real_distribution<double> dist_{ -1.0, 1.0 };
+	AudioBuffer buffer_;
 };
