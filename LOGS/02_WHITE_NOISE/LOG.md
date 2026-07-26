@@ -1,7 +1,7 @@
 # Introduction
 <b>--- 26-07-2026 09:17 SUNDAY ---</b>
 # Ideas
-## Idea 1 --- 26-07-2026 09:17 ---
+## <b>--- 26-07-2026 09:17 SUNDAY ---</b>
 Create a simple script which produces values which mimic white noise. The script should write values to a CSV file. 
 <br/><br/>
 <b>X -></b> time (assume 44100 values in 1 second)
