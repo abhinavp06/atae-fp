@@ -90,7 +90,19 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
         1. sample rate needs to become part of the audio buffer.
         1. i need to introduce channels everywhere in the later stages
     1. 20.38 -> TODO: dive deeper into dr_wav
-        1. For now, using same logic as old atae library 
+        1. For now, using same logic as old atae library
+    1. 20.45 -> Ran into an error while trying to save the white noise audio file
+        1. ```$ ./playground/Debug/white_noise_test.exe \n $ [Error] Could not open file for writing: D:/Code/atae-fp/CORE/output ```
+        1. Commented the if statement and added a try-catch. It says : "SEGMENTATION FAULT"
+        1. So I'm accessing memory somewhere in the wrong way
+        1. 20.52 -> Trying to use my IDE for once. Finding a way Visual Sutdio can help me.
+        1. 20.53 -> The segmentation fault is actually from my try-catch block. The function returns a true or false and doesnt throw an actual error. So there's no way for me to catch it.
+        1. 20.57 -> RCA
+            1. In playground/white_noise.cpp, I only wrote:
+                ``` output.save(OUTPUT_DIR, buffer, 44100.0); ```
+                instead of ``` output.save(OUTPUT_DIR "white_noise.wav", buffer, 44100.0); ```
+            1. I didn't specify the file name. That's it.
+
 ### C++ Findings
 1. `virtual` is used to define functions in a base class which are expected to be redefined in derived classes
 1. A base class with virtual functions should have a virtual destructor so derived objects are destroyed correctly through a base pointer.

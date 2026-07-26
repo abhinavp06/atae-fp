@@ -1,4 +1,5 @@
 #include <iostream>
+#include <stdexcept>
 #include <atae_fp/io/audio_file.h>
 
 #define DR_WAV_IMPLEMENTATION

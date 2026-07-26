@@ -8,7 +8,7 @@ int main() {
 	AudioBuffer buffer = wn.generate(2);
 
 	AudioFile output;
-	output.save(OUTPUT_DIR, buffer, 44100.0);
+	output.save(OUTPUT_DIR "white_noise.wav", buffer, 44100.0);
 
 	return 0;
 }

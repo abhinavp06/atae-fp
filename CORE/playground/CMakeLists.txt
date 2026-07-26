@@ -1,4 +1,4 @@
-set(ATAE_FP_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/output")
+set(ATAE_FP_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/output/")
 
 # OSCILLATORS
 add_executable(sine_wave_test oscillators/sine_osc.cpp)
