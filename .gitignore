@@ -1,7 +1,7 @@
 *.exe
 /.vs
 /build
-/out
+*/out
 */output/*
 !/output/.gitkeep
 *.wav
