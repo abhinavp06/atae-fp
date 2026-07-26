@@ -37,7 +37,9 @@ add_library (atae_fp
 
 target_include_directories(atae_fp 
     PUBLIC 
-        include 
+        include
+
+    PRIVATE
         tools
 )
 # -----------------------------------------------------------------------------
