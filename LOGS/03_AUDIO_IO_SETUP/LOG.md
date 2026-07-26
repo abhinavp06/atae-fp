@@ -47,7 +47,27 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
         1. it's just a vector of doubles
 1. 15.17 -> Audio Buffer Class
     1. 15.21 -> I have the basdic properties down. Now I'm debating if I should expose the buffer via any methods? I mean I know I have to but I'm debating ways.
-    1. 
+        1. If I expose the buffer simply as a public variable anyone can manipulate it. 
+        1. But that's okay since the job of the buffer is to simply provide.
+        1. But the buffer needs to know it's length. So, for memory safety I should ask for the duration. That same function should initialize a buffer.
+            1. While this is nice, how do I stop the usage of the buffer before the setDuration function is called? Need to explore.
+                1. 15.26 -> I could have a default buffer value like I did for sample_rate_.
+                1. 15.27 -> Think of more ways before weighing pros and cons. OR weigh them now. Go now.
+                    1. PROS:
+                        1. don't need to worry about any garbage user.. no need to worry about point memory safety above
+                        1. anyone who owns a buffer should have access to the variable. But it has to be protected. Not public. I dont want any owner to update it directly. They have to go through the instance.
+                            1. 15.30 -> let me understand public vs protected vs private once
+                                1. yeah.. protected
+                    1. CONS:
+                        1. I don't see any cons now except that it feels a little bare metal
+                            1. Let me think of this.. bare metal vs abstraction?
+                                1. 15.33 -> 
+                                    1. If I have an exposed variable.. I have more freedom.
+                                    1. If I abstract, I, as a mantainer have to do more work. No freedom. Can cause frustration in implementing
+                                    1. Maybe for critical code, bare metal is better?
+                    1. 15.35 -> Verdict: Bare metal is nice.
+    1. 15.42 -> There are so many patterns I can see with the class I am creating and how everything is declared. However, I will do this in my free time. TODO: Microoptimizing a class that I have implemented.
+        1. Going back and forth with [ChatGPT Chat](https://chatgpt.com/share/6a65de78-66cc-83e8-9256-48eaee60e434) and it has a good argument for abstraction. TODO: Use this ChatGPT conversation as part of the microoptimization
 ### C++ Findings
 1. `virtual` is used to define functions in a base class which are expected to be redefined in derived classes
 1. A base class with virtual functions should have a virtual destructor so derived objects are destroyed correctly through a base pointer.
