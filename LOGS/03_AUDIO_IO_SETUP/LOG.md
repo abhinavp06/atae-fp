@@ -76,6 +76,11 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
         1. I choose the latter.
         1. 16.02 -> In fact, I'll create a struct and only store a vector in it for now. No need for a sample rate either. Will tackle when required.
         1. 16.07 -> TODO: integrate AudioBuffer in the playground/ files
+1. 16.12 -> Now, actual audio output for white_noise
+    1. For this, I'll first need to find out how to convert my buffer to an audio file.
+    1. Then update the playground/noise/white_noise.cpp file.
+    1. But to test the audio I'll need the updated playground file. playground/ first.
+    1. 
 ### C++ Findings
 1. `virtual` is used to define functions in a base class which are expected to be redefined in derived classes
 1. A base class with virtual functions should have a virtual destructor so derived objects are destroyed correctly through a base pointer.
