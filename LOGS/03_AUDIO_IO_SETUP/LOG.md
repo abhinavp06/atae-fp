@@ -29,3 +29,6 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
     1. Example: If `Oscillator* osc = new SineOscillator();`, then `delete osc;` should call both the `SineOscillator` destructor and the `Oscillator` destructor.
 1. A virtual function with `= 0` is a pure virtual function, making the class abstract and forcing derived classes to implement it.
     1. Analogy: An `Animal` can't "speak" on its own, but a `Dog` or `Cat` can. Similarly, an `Oscillator` can't generate a waveform on its own, but a `SineOscillator`, `SquareOscillator`, etc. can.
+1. If header includes a library, no need to include it again in the cpp implementation.
+1. Constructor initializer lists initialize class members before the constructor body runs. Writing `member_(value)` inside the constructor body attempts to call the object like a function instead of initializing it.
+    1. Analogy: A constructor initializer list is like setting a person's name while creating their ID card; the constructor body is like changing their name after the ID card already exists.
