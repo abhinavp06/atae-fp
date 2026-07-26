@@ -23,6 +23,7 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
 1. 10.44 -> Now start with implementing header files and cpp files
 1. 11.29 -> Implemented sine wave
 1. 11.45 -> Done with Saw and Square
+1. 12.02 -> Done with white noise.
 ### C++ Findings
 1. `virtual` is used to define functions in a base class which are expected to be redefined in derived classes
 1. A base class with virtual functions should have a virtual destructor so derived objects are destroyed correctly through a base pointer.
