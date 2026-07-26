@@ -29,6 +29,9 @@ option(RUN_TESTS_AFTER_BUILD "Run unit tests after a successful build" ON)
 # -----------------------------------------------------------------------------
 
 add_library (atae_fp
+    # AUDIO FILE
+    src/io/audio_file.cpp
+
     # OSCILLATORS
     src/oscillators/oscillator.cpp
     src/oscillators/sine_oscillator.cpp

@@ -80,7 +80,17 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
     1. For this, I'll first need to find out how to convert my buffer to an audio file.
     1. Then update the playground/noise/white_noise.cpp file.
     1. But to test the audio I'll need the updated playground file. playground/ first.
-    1. 
+    1. 16.24 -> I am tempted to write my own buffer to .wav converter right now but I'll leave it aside. 
+        1. Need to look for third party implementations
+        1. I already used dr_wav.h .. going to use that.
+        1. TODO: Custom Buffer to WAV and FLAC file exporter
+1. 20.15 -> Implementing audio files using dr_wav.h'
+    1. Going to start with an AudioFile class
+    1. 20.24 -> It is becoming obvious that
+        1. sample rate needs to become part of the audio buffer.
+        1. i need to introduce channels everywhere in the later stages
+    1. 20.38 -> TODO: dive deeper into dr_wav
+        1. For now, using same logic as old atae library 
 ### C++ Findings
 1. `virtual` is used to define functions in a base class which are expected to be redefined in derived classes
 1. A base class with virtual functions should have a virtual destructor so derived objects are destroyed correctly through a base pointer.
@@ -97,3 +107,4 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
     1. reserve(sample_count) allocates space up front, so repeated push_back() is efficient.
     1. resize() is not needed here because it creates actual elements, which you would then overwrite or accidentally append to.
     1. This pattern keeps the buffer size correct and avoids the double-sizing bug.
+1. 20.28 -> dr_wav.h does not support double values. Use float and cast double to float.
