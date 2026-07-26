@@ -57,7 +57,7 @@ Same but a square wave this time.
    1. This is because `%` is defined as the **integer remainder** operator.
    2. For floating-point values, there isn't a natural notion of an integer remainder, since the quotient itself can also be a floating-point number. For example, `7.5 / 2.4 = 3.125`, so the remainder is mathematically `0`.
    3. If you want the remainder after forcing the quotient to be an integer, use `std::fmod()`.
-## Idea 3 --- 25-07-2026 23:06 --- (Positive Black Soul - Respect the nubians)
+## Idea 3 --- 25-07-2026 23:06 --- (Positive Black Soul - Respect Da Nubian)
 Same but a saw wave this time.
 ### Implementation Notes
 1. Arrived at this: ![](./saw/01.png)
