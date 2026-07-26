@@ -8,14 +8,16 @@ void WhiteNoise::setAmplitude(double amplitude) {
 	amplitude_ = amplitude;
 }
 
-std::vector<double> WhiteNoise::generate(const double duration_s) {
+AudioBuffer WhiteNoise::generate(const double duration_s) {
 	int sample_count = static_cast<int>(sample_rate_ * duration_s);
-	std::vector<double> samples(sample_count);
+	
+	buffer_.samples.clear();
+	buffer_.samples.reserve(sample_count);
 
 
 	for (int i = 0; i < sample_count; i++) {
-		samples[i] = dist_(engine_) * amplitude_;
+		buffer_.samples.push_back(dist_(engine_) * amplitude_);
 	}
 
-	return samples;
+	return buffer_;
 }

@@ -74,6 +74,8 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
         1. It fits my "bare metal" and "freedom" approach too. 
         1. Now I can either take a direction here of making this a well guarded libraryt or go bare metal right now with structs, later phase challenges and then refactor.
         1. I choose the latter.
+        1. 16.02 -> In fact, I'll create a struct and only store a vector in it for now. No need for a sample rate either. Will tackle when required.
+        1. 16.07 -> TODO: integrate AudioBuffer in the playground/ files
 ### C++ Findings
 1. `virtual` is used to define functions in a base class which are expected to be redefined in derived classes
 1. A base class with virtual functions should have a virtual destructor so derived objects are destroyed correctly through a base pointer.
@@ -85,3 +87,8 @@ Integrate generation of Audio files so that I can hear my output instead of CSVs
     1. Analogy: A constructor initializer list is like setting a person's name while creating their ID card; the constructor body is like changing their name after the ID card already exists.
 1. 14.14 -> `CMAKE_SOURCE_DIR` always refers to the top-level directory where the first `CMakeLists.txt` was called, not the directory of the current CMake file.
     1. Example: If `CORE/CMakeLists.txt` is the root file, then `${CMAKE_SOURCE_DIR}` points to `CORE/` even when used inside `playground/CMakeLists.txt` or `tests/CMakeLists.txt`.
+1. 16.10 -> Use clear() + reserve() when you want to build the buffer by push_back()
+    1. clear() removes any old samples before generating new ones.
+    1. reserve(sample_count) allocates space up front, so repeated push_back() is efficient.
+    1. resize() is not needed here because it creates actual elements, which you would then overwrite or accidentally append to.
+    1. This pattern keeps the buffer size correct and avoids the double-sizing bug.
