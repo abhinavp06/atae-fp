@@ -4,7 +4,6 @@
 const double SAMPLE_RATE = 100.0;
 const int WAVE_DURATION_S = 2;
 const double WAVE_FREQUENCY = 2.0;
-const double DUTY_CYCLE = 0.5;
 const double AMPLITUDE = 0.5;
 
 
