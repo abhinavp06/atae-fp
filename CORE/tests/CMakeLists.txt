@@ -1,0 +1,1 @@
+set(ATAE_FP_OUTPUT_DIR "${CMAKE_SOURCE_DIR}/output/")

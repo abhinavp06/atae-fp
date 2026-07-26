@@ -7,7 +7,7 @@ I'll start with a basic oscillator and keep a Log file for each branch I create.
 <br/><br/>
 
 # Ideas
-## Idea 1 --- 25-07-2026 11:02 ---
+## <b>--- 25-07-2026 11:02 SATURDAY ---</b>
 Create a simple script which produces values which mimic a sine wave. The script should write values to a CSV file. 
 <br/><br/>
 <b>X -></b> time (assume 44100 values in 1 second)
@@ -46,7 +46,7 @@ Create a simple script which produces values which mimic a sine wave. The script
 16. Prefer `const` for values that never change (e.g., `phase_increment`).
 17. Use compiler warnings (`-Wall -Wextra -pedantic`) to catch non-portable or suspicious code early.
 18. A relative file path is resolved from the program's current working directory, not the source file's location.
-## Idea 2 --- 25-07-2026 18:53 ---
+## <b>--- 25-07-2026 18:53 SATURDAY ---</b>
 Same but a square wave this time.
 ### Implementation Notes
 1. Pretty easy logic
@@ -57,7 +57,7 @@ Same but a square wave this time.
    1. This is because `%` is defined as the **integer remainder** operator.
    2. For floating-point values, there isn't a natural notion of an integer remainder, since the quotient itself can also be a floating-point number. For example, `7.5 / 2.4 = 3.125`, so the remainder is mathematically `0`.
    3. If you want the remainder after forcing the quotient to be an integer, use `std::fmod()`.
-## Idea 3 --- 25-07-2026 23:06 --- (Positive Black Soul - Respect Da Nubian)
+## <b>--- 25-07-2026 23:06 SATURDAY ---</b> (Positive Black Soul - Respect Da Nubian)
 Same but a saw wave this time.
 ### Implementation Notes
 1. Arrived at this: ![](./saw/01.png)
