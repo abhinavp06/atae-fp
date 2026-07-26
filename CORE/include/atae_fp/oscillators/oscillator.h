@@ -14,7 +14,7 @@ protected:
 
 	double sample_rate_ = 44100.0;
 	double frequency_ = 0.0;
-	double amplitude_ = 0.0;
+	double amplitude_ = 1.0;
 	double phase_ = 0.0;
 	double phase_increment_ = 0.0;
 
