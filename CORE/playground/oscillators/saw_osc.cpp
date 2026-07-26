@@ -21,7 +21,8 @@ void generateCSV(const std::vector<double>& samples) {
 		if (i != sample_count - 1) result += "\n";
 	}
 
-	std::ofstream output("./CORE/output/01_OSCILLATORS/saw/saw_wave.csv");
+	std::string output_path = std::string(OUTPUT_DIR) + "/saw_wave.csv";
+	std::ofstream output(output_path);
 
 	if (!output.is_open()) {
 		std::cerr << "Error: Could not open the file!" << std::endl;

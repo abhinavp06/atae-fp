@@ -21,7 +21,8 @@ void generateCSV(const std::vector<double>& samples) {
 		if (i != sample_count - 1) result += "\n";
 	}
 
-	std::ofstream output("./CORE/output/02_WHITE_NOISE/white_noise.csv");
+	std::string output_path = std::string(OUTPUT_DIR) + "/white_noise.csv";
+	std::ofstream output(output_path);
 
 	if (!output.is_open()) {
 		std::cerr << "Error: Could not open the file!" << std::endl;
