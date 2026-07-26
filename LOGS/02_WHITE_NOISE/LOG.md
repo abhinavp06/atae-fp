@@ -11,4 +11,5 @@ Create a simple script which produces values which mimic white noise. The script
 1. Figure out what white noise is and how it works.
 1. Same CSV generation logic
 ### Implementation Notes
-### C++ Findings
+1. Pretty easy. Just random values. 
+1. Ideally should have done this before the oscillators.
