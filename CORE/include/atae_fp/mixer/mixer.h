@@ -8,5 +8,5 @@ struct MixInput {
 
 class Mixer {
 public:
-	AudioBuffer mix(const std::vector<MixInput>& inputs);
+	AudioBuffer mix(const std::vector<MixInput>& inputs, bool clamp = false);
 };

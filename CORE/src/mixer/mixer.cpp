@@ -1,6 +1,7 @@
 #include <atae_fp/mixer/mixer.h>
+#include <algorithm>
 
-AudioBuffer Mixer::mix(const std::vector<MixInput>& inputs) {
+AudioBuffer Mixer::mix(const std::vector<MixInput>& inputs, bool clamp) {
 
 	// assuming input lengths are the same
 	size_t sample_count = inputs[0].audio_buffer.samples.size();
@@ -14,7 +15,7 @@ AudioBuffer Mixer::mix(const std::vector<MixInput>& inputs) {
 			mixed += inputs[j].audio_buffer.samples[i] * inputs[j].gain;
 		}
 
-		output.samples[i] = mixed;
+		output.samples[i] = clamp ? std::clamp(mixed, -1.0, 1.0) : mixed;
 		mixed = 0.0;
 	}
 
