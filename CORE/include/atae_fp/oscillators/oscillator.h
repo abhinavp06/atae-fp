@@ -4,7 +4,7 @@
 class Oscillator {
 public:
 	virtual ~Oscillator() = default;
-	virtual AudioBuffer generate(const double duration_s) = NULL;
+	virtual AudioBuffer generate(const double duration_s) = 0;
 	void setSampleRate(double sample_rate);
 	void setFrequency(double frequency);
 	void setAmplitude(double amplitude);

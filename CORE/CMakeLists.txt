@@ -40,7 +40,7 @@ add_library (atae_fp
 
     # NOISE
     src/noise/white_noise.cpp
-)
+ "src/mixer/mixer.cpp")
 
 target_include_directories(atae_fp 
     PUBLIC 
