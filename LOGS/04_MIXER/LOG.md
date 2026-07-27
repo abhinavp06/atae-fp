@@ -11,3 +11,5 @@
 1. Prefer using ```++i``` for iteration.
     1. ```++i``` increments and returns the updated value.
     1. ```i++``` returns the old value before incrementing, which may require an extra copy for iterators and user-defined types.
+1. 12.16 -> Pure virtual specifier can only be 0
+    1. It was able to compile with = NULL before due to the compiler platform as C preprocessor handles macros before the C++ compiler ever reads the grammar rule
