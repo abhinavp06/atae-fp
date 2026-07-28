@@ -82,4 +82,5 @@
     1. also, calculating average everytime is costly.. 
         1. so to make it efficient, i can just store the previous output and then take the current sampple in and come up with a formula.
     1. the main question is: how is averaging something filtering stuff out? and how is it a low pass and not a high pass? and after all this, what exactly is a one pole low pass filter? I understand filters.. but what about this?
+1. 15.47 -> Summing rewards agreement between samples and punishes disagreement — slow signals agree, fast signals cancel.
 ## C++ Findings
