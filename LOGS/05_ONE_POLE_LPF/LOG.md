@@ -56,4 +56,12 @@
                         1. 21.57 -> But duration can also be included here in the equation!
                             1. 22.03 -> TOMORROW ![](05.jpg)
             1. Figure out how to actually filter once the relationship is derived
+<b>--- 28-07-2026 11:23 MONDAY ---</b>
+<br/><br/>
+1. Keep it simple. Create a naive filter.
+    1. Imagine a filter knob that can be used. Knob goes from 0 to 1.
+    1. ```Filtered value = (1 - KNOB_VALUE) * sample[i] ``` That's it!
+    1. Then figure out how to make it low pass or high pass. Right now it just cuts things off.
+    1. 11.32 -> Should filter give only the value that should be subtracted or should it filter and give it?
+        1. Let it give the filtered value
 ## C++ Findings
