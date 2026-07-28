@@ -5,4 +5,4 @@ public:
     double process(double input);
 private:
     double gain = 0.0;
-}
+};
