@@ -129,5 +129,14 @@
                                 1. but do i really care about the shift? why not just hold the last output?
                                     1. what is the last output made of? y[i-1] = ??
                                         1. it's equal to ????
+1. 21.35 -> okay, used some AI here
+    1. recalculating average of samples every time is:
+        1. costly
+        1. harsher cutoff
+    1. if i just store the previous output and bring that into the mix for the next input
+        1. less costly
+        1. smoother cutoff
+    1. now, how do we relate to the constants that we have - SR, Fc and then what exactly is K? 
+        1. this is the only thing left; then my equation is simply: ```y[i] = (1 - K) * y[i-1] + K * x[i]```
 
 ## C++ Findings
