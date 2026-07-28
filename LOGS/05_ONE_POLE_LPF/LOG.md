@@ -56,7 +56,7 @@
                         1. 21.57 -> But duration can also be included here in the equation!
                             1. 22.03 -> TOMORROW ![](05.jpg)
             1. Figure out how to actually filter once the relationship is derived
-<b>--- 28-07-2026 11:23 MONDAY ---</b>
+<b>--- 28-07-2026 11:23 TUESDAY ---</b>
 <br/><br/>
 1. First of all ```buffer.size()``` is simply ```SR * DURATION```.. the approach itself was wrong.
 1. Keep it simple. Create a naive filter.
@@ -74,4 +74,12 @@
         1. sample_rate -> of the recording/audio buffer
     1. if cutoff_frequency is a knob and i have multiple samples, what can i do to manipulate output?
         1. and what about sample rate?
+1. 13.06 -> 
+    1. I know that sample_rate/Fc will give me the number of samples in a cycle
+    1. That number is how many samples from the buffer i should take into consideration
+    1. but then what do i do with these samples?
+        1. if averages can be taken into consideration then how is an average doing the work of the filter?
+    1. also, calculating average everytime is costly.. 
+        1. so to make it efficient, i can just store the previous output and then take the current sampple in and come up with a formula.
+    1. the main question is: how is averaging something filtering stuff out? and how is it a low pass and not a high pass? and after all this, what exactly is a one pole low pass filter? I understand filters.. but what about this?
 ## C++ Findings
