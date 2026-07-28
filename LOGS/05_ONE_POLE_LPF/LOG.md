@@ -83,4 +83,51 @@
         1. so to make it efficient, i can just store the previous output and then take the current sampple in and come up with a formula.
     1. the main question is: how is averaging something filtering stuff out? and how is it a low pass and not a high pass? and after all this, what exactly is a one pole low pass filter? I understand filters.. but what about this?
 1. 15.47 -> Summing rewards agreement between samples and punishes disagreement — slow signals agree, fast signals cancel.
+1. 20.47 -> 
+    1. filter needs to filter out frequencies
+    1. this means filter can only work on relationship between two samples
+    1. with the summing principle (mentioned at 15.47), i need to add the last output to the current input
+    1. agreement is what slow samples have - which means that a low pass filter allows low frequencies to pass through.. and low freq means low rate of change
+    1. i need to blend the current input with the past
+    1. the factor with which blending is done is the knob
+    1. knob is in Hz.. blending is a unitless process
+        1. i need to find cycles per sample.... that gives me an idea of "freq"
+        1. so Fc/SR is the ratio
+    1. 21.01 -> Think again
+        1. if agreement is what slow samples have..
+            1. that means i need to find a relationship between the last sample and this sample
+            1. which means that i am BLENDING the last sample and this sample
+            1. which is why it is a low pass filter because i am summing things up and trying to maintain the "stickiness" in samples
+            1. if it was a high pass filter, i would do the opposite.. try to remove the "stickiness".. which means subtraction
+            1. anyways..
+        1. so, the idea of a low pass filter is locked in.. make samples agree and blend them
+        1. so what is the blending mechanism?
+            1. i know that i have a sample rate and a cutoff frequency
+            1. cutoff frequency - how many cycles go through in one second, sample rate - how many samples are in one second
+            1. why am i taking these 2 into consideration?
+                1. i need to take a fraction of the input sample so that it comes UNDER the cutoff frequency
+                    1. so, that becomes ```some_fraction * x[i]```
+                    1. so, my output right now is ``` y[i] = some_fraction * x[i]  => y[i] = (1 - K) * x[i]```
+                1. now, what is this K? and the cutoff freq + sample rate relation with this K?
+        1. 21.13 -> blending means 2 components
+            1. but why 2? and if 2 - then what to take into consideration?
+                1. let's start with what to take into consideration?
+                    1. either last sample or something else altogether?
+                        1. LAST SAMPLE:
+                            1. PROS: 
+                                1. i have some sort of an idea of what was there previously
+                            1. CONS:
+                                1. are 2 samples enough to verify a change? maybe the no. of samples in a cycle (```SR/Fc```) ACTUALLY help in understanding the freq content?
+                    1. this means that the "something else altogether" is a history of the cycle?
+                        1. if so, then maybe an average makes sense? what else?
+                            1. let's say i take the average
+                                1. then that means that i need to store each and every sample
+                                1. then take the average
+                                1. then add it to my input
+                                1. then equation becomes: ```y[i] = (((x[i-1] + x[i-2]...) / SR) * FC)*(1 - K) + K * x[i]```
+                                1. but when i go to the next sample, i discard the LAST sample from the average calculation for the previous input.. which means i have shifted by 1
+                                1. but do i really care about the shift? why not just hold the last output?
+                                    1. what is the last output made of? y[i-1] = ??
+                                        1. it's equal to ????
+
 ## C++ Findings
