@@ -58,6 +58,7 @@
             1. Figure out how to actually filter once the relationship is derived
 <b>--- 28-07-2026 11:23 MONDAY ---</b>
 <br/><br/>
+1. First of all ```buffer.size()``` is simply ```SR * DURATION```.. the approach itself was wrong.
 1. Keep it simple. Create a naive filter.
     1. Imagine a filter knob that can be used. Knob goes from 0 to 1.
     1. ```Filtered value = (1 - KNOB_VALUE) * sample[i] ``` That's it!
