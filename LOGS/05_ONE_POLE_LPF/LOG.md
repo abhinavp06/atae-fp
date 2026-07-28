@@ -65,4 +65,13 @@
     1. Then figure out how to make it low pass or high pass. Right now it just cuts things off.
     1. 11.32 -> Should filter give only the value that should be subtracted or should it filter and give it?
         1. Let it give the filtered value
+1. 11.55 -> The thing to realize is that I have actually created a gain control.
+1. 12.16 -> If frequency is a rate, a single sample cannot give me the information for a filter.
+    1. I need to take multiple samples into consideration.
+    1. The variables I have:
+        1. cutoff_frequency -> of the filter
+        1. buffer samples -> double values holding amplitude
+        1. sample_rate -> of the recording/audio buffer
+    1. if cutoff_frequency is a knob and i have multiple samples, what can i do to manipulate output?
+        1. and what about sample rate?
 ## C++ Findings
