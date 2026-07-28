@@ -3,6 +3,7 @@
 class NaiveFilter {
 public:
     double process(double input);
+    void setGain(double gain);
 private:
-    double gain = 0.0;
+    double gain_ = 0.0;
 };
