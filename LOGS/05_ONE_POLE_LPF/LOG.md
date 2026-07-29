@@ -144,5 +144,5 @@
 1. should one pole lpf class store the sample rate?
     1. i could just store the constant only and accept the sample rate and cutoff frequency in the constructor
     1. thinking of the filter as a knob.... knob controls cutoff frequency.. sample rate is a fixed decision to be taken by the developer
-
+1. 16.22 -> Testing with alpha = 0
 ## C++ Findings
