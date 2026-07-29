@@ -56,6 +56,7 @@
                         1. 21.57 -> But duration can also be included here in the equation!
                             1. 22.03 -> TOMORROW ![](05.jpg)
             1. Figure out how to actually filter once the relationship is derived
+<br/><br/>            
 <b>--- 28-07-2026 11:23 TUESDAY ---</b>
 <br/><br/>
 1. First of all ```buffer.size()``` is simply ```SR * DURATION```.. the approach itself was wrong.
@@ -138,5 +139,10 @@
         1. smoother cutoff
     1. now, how do we relate to the constants that we have - SR, Fc and then what exactly is K? 
         1. this is the only thing left; then my equation is simply: ```y[i] = (1 - K) * y[i-1] + K * x[i]```
+<b>--- 29-07-2026 15:57 WEDNESDAY ---</b>
+<br/><br/>        
+1. should one pole lpf class store the sample rate?
+    1. i could just store the constant only and accept the sample rate and cutoff frequency in the constructor
+    1. thinking of the filter as a knob.... knob controls cutoff frequency.. sample rate is a fixed decision to be taken by the developer
 
 ## C++ Findings
