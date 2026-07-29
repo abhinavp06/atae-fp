@@ -145,4 +145,7 @@
     1. i could just store the constant only and accept the sample rate and cutoff frequency in the constructor
     1. thinking of the filter as a knob.... knob controls cutoff frequency.. sample rate is a fixed decision to be taken by the developer
 1. 16.22 -> Testing with alpha = 0
+    1. No change
+    1. With alpha = 0.5, I can hear the harshness reduce.. so the filter is working
+1. 16.30 -> Now, to find out the actual value of alpha and how it relates with the sample rate and cutoff frequency
 ## C++ Findings

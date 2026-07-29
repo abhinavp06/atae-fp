@@ -1,7 +1,7 @@
 #include <atae_fp/filters/one_pole_lpf.h>
 
 void OnePoleLpf::calculateAlpha() {
-    alpha_ = 0; // testing with 0 for now
+    alpha_ = 0.5;
 }
 
 void OnePoleLpf::setCutoffFrequency(double cutoff_frequency) {
