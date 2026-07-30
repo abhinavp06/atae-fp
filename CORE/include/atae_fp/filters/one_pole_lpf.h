@@ -7,6 +7,6 @@ private:
     double previous_output_ = 0.0;
     double cutoff_frequency_ = 0.0;
     double sample_rate_ = 0.0;
-    double alpha_ = 0.0; // calculated value based on cutoff frequency and sample rate
+    double alpha_ = 1.0; // calculated value based on cutoff frequency and sample rate
     void calculateAlpha();
 };
