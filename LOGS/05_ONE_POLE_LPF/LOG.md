@@ -159,4 +159,5 @@
         1. equal to sine wave freq
     1. This will help in finding out alpha_ in terms of cutoff frequency
     1. Then I will try to find if sample rate needs to be introduced here or not
+1. 12.56 -> I just realised that given that I already know the equation for a one pole lpf, my need for the derivation of the constant is tainted by the conditioning. I need to first figure out an organic way to propose an argument for alpha_ to be a specific value instead of something random.
 ## C++ Findings
