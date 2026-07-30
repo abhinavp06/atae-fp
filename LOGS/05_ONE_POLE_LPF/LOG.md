@@ -148,4 +148,15 @@
     1. No change
     1. With alpha = 0.5, I can hear the harshness reduce.. so the filter is working
 1. 16.30 -> Now, to find out the actual value of alpha and how it relates with the sample rate and cutoff frequency
+<br/><br/>
+<b>--- 30-07-2026 12:47 THURSDAY ---</b>
+<br/><br/>
+1. Now to experiment and find the value of alpha_
+    1. I will create a sine wave with a specific frequency.
+    1. Then set the cutoff frequency in 3 ways:
+        1. above sine wave freq
+        1. below sine wave freq
+        1. equal to sine wave freq
+    1. This will help in finding out alpha_ in terms of cutoff frequency
+    1. Then I will try to find if sample rate needs to be introduced here or not
 ## C++ Findings
