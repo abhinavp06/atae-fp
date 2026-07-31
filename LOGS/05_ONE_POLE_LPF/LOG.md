@@ -160,4 +160,13 @@
     1. This will help in finding out alpha_ in terms of cutoff frequency
     1. Then I will try to find if sample rate needs to be introduced here or not
 1. 12.56 -> I just realised that given that I already know the equation for a one pole lpf, my need for the derivation of the constant is tainted by the conditioning. I need to first figure out an organic way to propose an argument for alpha_ to be a specific value instead of something random.
+<br/><br/>
+<b>--- 31-07-2026 11:49 FRIDAY ---</b>
+<br/><br/>
+1. Filter types:
+    1. Low pass - 0 <= x <= Fc
+    2. High pass - Fc <= x < infinity
+    3. Band pass - Fc1 <= x <= Fc2
+    4. Band stop - 0 <= x < Fc1 & Fc2 < x <= infinity
+    ![](06.png)
 ## C++ Findings
