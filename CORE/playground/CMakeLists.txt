@@ -27,3 +27,14 @@ add_executable(mixer_playground "mixer/mixer_playground.cpp")
 target_link_libraries(mixer_playground PRIVATE atae_fp)
 target_compile_definitions(mixer_playground PRIVATE 
     OUTPUT_DIR="${ATAE_FP_OUTPUT_DIR}")
+
+# FILTERS
+add_executable(naive_filter_playground "filters/naive_filter_playground.cpp")
+target_link_libraries(naive_filter_playground PRIVATE atae_fp)
+target_compile_definitions(naive_filter_playground PRIVATE 
+    OUTPUT_DIR="${ATAE_FP_OUTPUT_DIR}")
+
+add_executable(one_pole_lpf_playground "filters/one_pole_lpf_playground.cpp")
+target_link_libraries(one_pole_lpf_playground PRIVATE atae_fp)
+target_compile_definitions(one_pole_lpf_playground PRIVATE 
+    OUTPUT_DIR="${ATAE_FP_OUTPUT_DIR}")
