@@ -169,4 +169,8 @@
     3. Band pass - Fc1 <= x <= Fc2
     4. Band stop - 0 <= x < Fc1 & Fc2 < x <= infinity
     ![](06.png)
+<br/><br/>
+<b>--- 01-08-2026 08:48 SUNDAY ---</b>
+<br/><br/>
+1. Let's just accept the equation for alpha right now and move on. TODO: Will revisit this later.
 ## C++ Findings
