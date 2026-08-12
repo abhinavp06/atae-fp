@@ -1,8 +1,16 @@
 #pragma once
 
-enum class AdsrState { Idle, Attack, Decay, Sustain, Release };
+enum class AdsrState
+{
+    Idle,
+    Attack,
+    Decay,
+    Sustain,
+    Release
+};
 
-class Adsr {
+class Adsr
+{
 public:
     void setAttack(double attack);
     void setDecay(double decay);
@@ -10,6 +18,7 @@ public:
     void setRelease(double release);
     void noteOn();
     void noteOff();
+
 private:
     double current_value_ = 0.0;
     AdsrState current_state_ = AdsrState::Idle;
