@@ -18,7 +18,7 @@ public:
     void setRelease(double release);
     void noteOn();
     void noteOff();
-
+    double process();
 private:
     double current_value_ = 0.0;
     AdsrState current_state_ = AdsrState::Idle;

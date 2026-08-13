@@ -31,3 +31,12 @@ void Adsr::noteOff()
     current_value_ = 0.0;
     current_state_ = AdsrState::Release;
 }
+
+double Adsr::process()
+{
+    switch (current_state_)
+    {
+    case AdsrState::Idle:
+        return 0.0;
+    }
+}
