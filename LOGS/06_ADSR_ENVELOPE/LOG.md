@@ -13,3 +13,7 @@
         3. User then stops pressing the key -> noteOff() triggered
         4. noteOff() is the actual release trigger.. if not called sustain indefinitely?
     1. Experiment with this and try to find out bugs
+<br/><br/>
+<b>--- 13-08-2026 06:43 THURSDAY ---</b>
+<br/><br/>
+1. Decay must have a factor of sustain as well.. it has to reach the sustain level which means it needs to decrement the difference in a set amount of samples

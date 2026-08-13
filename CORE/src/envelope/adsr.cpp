@@ -78,7 +78,7 @@ double Adsr::process()
         }
         else
         {
-            current_value_ -= decay_;
+            current_value_ -= (1.0 - sustain_) / decay_;
         }
         break;
     case AdsrState::Sustain:
