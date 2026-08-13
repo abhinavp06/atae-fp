@@ -23,7 +23,7 @@ void Adsr::setRelease(double release)
 void Adsr::noteOn()
 {
     current_value_ = 0.0;
-    current_state_ = AdsrState::Idle;
+    current_state_ = AdsrState::Attack;
 }
 
 void Adsr::noteOff()
