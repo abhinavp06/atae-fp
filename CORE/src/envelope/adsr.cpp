@@ -81,6 +81,9 @@ double Adsr::process()
             current_value_ -= decay_;
         }
         break;
+    case AdsrState::Sustain:
+        current_value_ = sustain_;
+        return sustain_;
     }
 
     return current_value_;
