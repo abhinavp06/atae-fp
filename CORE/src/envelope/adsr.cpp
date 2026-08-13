@@ -50,5 +50,15 @@ double Adsr::process()
     {
     case AdsrState::Idle:
         return 0.0;
+    case AdsrState::Attack:
+        if(current_value_ >= 1.0) {
+            current_state_ = AdsrState::Decay;
+            current_value_ = 1.0;
+        } else {
+            current_value_ += attack_;
+        }
+        break;
     }
+
+    return current_value_;
 }
