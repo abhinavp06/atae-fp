@@ -19,6 +19,13 @@ int main()
     adsr.setSustain(0.5);
     adsr.setRelease(5.0, SAMPLE_RATE);
 
+    adsr.noteOn();
+
+    for (auto &sample : sine_buffer.samples)
+    {
+        sample *= adsr.process();
+    }
+
     AudioFile audio_file;
     audio_file.save(OUTPUT_DIR "adsr_output.wav", sine_buffer, SAMPLE_RATE);
 }
