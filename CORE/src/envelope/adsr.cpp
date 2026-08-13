@@ -84,6 +84,19 @@ double Adsr::process()
     case AdsrState::Sustain:
         current_value_ = sustain_;
         return sustain_;
+    case AdsrState::Release:
+    {
+        if (current_value_ <= 0.0)
+        {
+            current_value_ = 0.0;
+            current_state_ = AdsrState::Idle;
+        }
+        else
+        {
+            current_value_ -= release_;
+        }
+        break;
+    }
     }
 
     return current_value_;
