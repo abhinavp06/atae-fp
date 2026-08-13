@@ -12,10 +12,10 @@ enum class AdsrState
 class Adsr
 {
 public:
-    void setAttack(double attack);
-    void setDecay(double decay);
+    void setAttack(double attack, double sample_rate);
+    void setDecay(double decay, double sample_rate);
     void setSustain(double sustain);
-    void setRelease(double release);
+    void setRelease(double release, double sample_rate);
     void noteOn();
     void noteOff();
     double process();

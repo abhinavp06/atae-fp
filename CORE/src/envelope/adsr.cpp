@@ -1,13 +1,21 @@
 #include <atae_fp/envelope/adsr.h>
 
-void Adsr::setAttack(double attack)
+void Adsr::setAttack(double attack, double sample_rate)
 {
-    attack_ = attack;
+    if(attack <= 0.0) {
+        attack_ = 1.0;
+    } else {
+        attack_ = 1.0 / (attack * sample_rate);
+    }
 }
 
-void Adsr::setDecay(double decay)
+void Adsr::setDecay(double decay, double sample_rate)
 {
-    decay_ = decay;
+    if(decay <= 0.0) {
+        decay_ = 1.0;
+    } else {
+        decay_ = 1.0 / (decay * sample_rate);
+    }
 }
 
 void Adsr::setSustain(double sustain)
@@ -15,9 +23,13 @@ void Adsr::setSustain(double sustain)
     sustain_ = sustain;
 }
 
-void Adsr::setRelease(double release)
+void Adsr::setRelease(double release, double sample_rate)
 {
-    release_ = release;
+    if(release <= 0.0) {
+        release_ = current_value_;
+    } else {
+        release_ = current_value_ / (release * sample_rate);
+    }
 }
 
 void Adsr::noteOn()
