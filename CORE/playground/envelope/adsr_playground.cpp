@@ -26,6 +26,8 @@ int main()
         sample *= adsr.process();
     }
 
+    adsr.noteOff();
+
     AudioFile audio_file;
     audio_file.save(OUTPUT_DIR "adsr_output.wav", sine_buffer, SAMPLE_RATE);
 }
