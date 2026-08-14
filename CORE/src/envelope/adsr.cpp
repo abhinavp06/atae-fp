@@ -14,14 +14,7 @@ void Adsr::setAttack(double attack, double sample_rate)
 
 void Adsr::setDecay(double decay, double sample_rate)
 {
-    if (decay <= 0.0)
-    {
-        decay_ = 1.0;
-    }
-    else
-    {
-        decay_ = 1.0 / (decay * sample_rate);
-    }
+    decay_samples_ = decay * sample_rate;
 }
 
 void Adsr::setSustain(double sustain)
@@ -64,6 +57,12 @@ double Adsr::process()
         {
             current_state_ = AdsrState::Decay;
             current_value_ = 1.0;
+            if (decay_samples_ <= 0) {
+                decay_ = 1.0;
+            }
+            else {
+                decay_ = (1.0 - sustain_) / decay_samples_;
+            }
         }
         else
         {
@@ -78,7 +77,7 @@ double Adsr::process()
         }
         else
         {
-            current_value_ -= (1.0 - sustain_) / decay_;
+            current_value_ -= decay_;
         }
         break;
     case AdsrState::Sustain:
@@ -100,4 +99,8 @@ double Adsr::process()
     }
 
     return current_value_;
+}
+
+AdsrState Adsr::getState() {
+    return current_state_;
 }
