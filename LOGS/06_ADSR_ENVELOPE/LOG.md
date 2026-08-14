@@ -21,3 +21,7 @@
     1. There is a clipping sound in the first 2-3 seconds of the clip as it ramps up
     1. No decay/sustain/release can be heard.
     1. Either the code is incorrect or the values in the input need to be tweaked.
+<br/><br/>
+<b>--- 14-08-2026 09:28 FRIDAY ---</b>
+<br/><br/>
+1. noteOff() should be in the loop.

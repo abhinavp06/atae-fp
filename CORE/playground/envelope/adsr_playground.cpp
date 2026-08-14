@@ -18,12 +18,21 @@ int main()
     adsr.setDecay(8.0, SAMPLE_RATE);
     adsr.setSustain(0.5);
     adsr.setRelease(5.0, SAMPLE_RATE);
+    int note_off_sample = static_cast<int>(DURATION_S - 5.0) * SAMPLE_RATE; // duration_s - release time
 
     adsr.noteOn();
 
+    int index = 0;
     for (auto &sample : sine_buffer.samples)
     {
         sample *= adsr.process();
+
+        if(index == note_off_sample)
+        {
+            adsr.noteOff();
+        }
+
+        ++index;
     }
 
     adsr.noteOff();
