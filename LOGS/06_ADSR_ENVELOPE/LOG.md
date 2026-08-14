@@ -25,3 +25,6 @@
 <b>--- 14-08-2026 09:28 FRIDAY ---</b>
 <br/><br/>
 1. noteOff() should be in the loop.
+    1. Observations:
+        1. clipping still present
+        1. once noteOff() is called, there is instant silence.
