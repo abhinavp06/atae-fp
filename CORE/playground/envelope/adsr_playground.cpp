@@ -31,11 +31,6 @@ int main()
     for (auto &sample : sine_buffer.samples)
     {
         sample *= adsr.process();
-        const char* state_str = adsr.getState() == AdsrState::Idle ? "Idle" :
-                              adsr.getState() == AdsrState::Attack ? "Attack" :
-                              adsr.getState() == AdsrState::Decay ? "Decay" :
-                              adsr.getState() == AdsrState::Sustain ? "Sustain" :
-                              adsr.getState() == AdsrState::Release ? "Release" : "Unknown";
 
         max_sample = std::max(max_sample, std::abs(sample));
 
