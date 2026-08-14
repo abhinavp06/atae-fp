@@ -28,4 +28,5 @@ private:
     double decay_samples_ = 0.0;
     double sustain_ = 0.0;
     double release_ = 0.0;
+    double release_samples_ = 0.0;
 };

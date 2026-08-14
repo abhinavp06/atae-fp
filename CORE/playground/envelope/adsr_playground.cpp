@@ -16,10 +16,6 @@ int main()
     sine_osc.setAmplitude(0.5);
     AudioBuffer sine_buffer = sine_osc.generate(DURATION_S);
 
-    double raw_peak = 0.0;
-    for (const auto& s : sine_buffer.samples) raw_peak = std::max(raw_peak, std::abs(s));
-    std::cout << "raw sine peak: " << raw_peak << "\n";
-
     Adsr adsr;
     adsr.setAttack(4.0, SAMPLE_RATE);
     adsr.setDecay(8.0, SAMPLE_RATE);
@@ -41,15 +37,7 @@ int main()
                               adsr.getState() == AdsrState::Sustain ? "Sustain" :
                               adsr.getState() == AdsrState::Release ? "Release" : "Unknown";
 
-        if(sample >= 1.0) {
-            std::cout << "Sample value exceeded 1.0 at index " << index << ", value: " << sample << ", state: " << state_str << std::endl;
-        }
-
-        // max_sample = std::max(max_sample, std::abs(sample));
-        if(std::abs(sample) > max_sample) {
-            std::cout << "New max sample value: " << std::abs(sample) << " at index " << index << ", state: " << state_str << std::endl;
-            max_sample = std::abs(sample);
-        }
+        max_sample = std::max(max_sample, std::abs(sample));
 
         if(index == note_off_sample)
         {
@@ -58,8 +46,6 @@ int main()
 
         ++index;
     }
-
-    std::cout << "Max sample value after applying ADSR: " << max_sample << std::endl;
 
     AudioFile audio_file;
     audio_file.save(OUTPUT_DIR "adsr_output.wav", sine_buffer, SAMPLE_RATE);

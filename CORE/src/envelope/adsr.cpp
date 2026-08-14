@@ -24,14 +24,7 @@ void Adsr::setSustain(double sustain)
 
 void Adsr::setRelease(double release, double sample_rate)
 {
-    if (release <= 0.0)
-    {
-        release_ = current_value_;
-    }
-    else
-    {
-        release_ = current_value_ / (release * sample_rate);
-    }
+    release_samples_ = release * sample_rate;
 }
 
 void Adsr::noteOn()
@@ -42,8 +35,8 @@ void Adsr::noteOn()
 
 void Adsr::noteOff()
 {
-    current_value_ = 0.0;
     current_state_ = AdsrState::Release;
+    release_ = (release_samples_ > 0) ? current_value_ / release_samples_ : current_value_;
 }
 
 double Adsr::process()
