@@ -38,3 +38,9 @@ add_executable(one_pole_lpf_playground "filters/one_pole_lpf_playground.cpp")
 target_link_libraries(one_pole_lpf_playground PRIVATE atae_fp)
 target_compile_definitions(one_pole_lpf_playground PRIVATE 
     OUTPUT_DIR="${ATAE_FP_OUTPUT_DIR}")
+
+# ENVELOPES
+add_executable(adsr_playground "envelope/adsr_playground.cpp")
+target_link_libraries(adsr_playground PRIVATE atae_fp)
+target_compile_definitions(adsr_playground PRIVATE 
+    OUTPUT_DIR="${ATAE_FP_OUTPUT_DIR}")

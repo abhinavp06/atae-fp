@@ -1,0 +1,99 @@
+#include <atae_fp/envelope/adsr.h>
+
+void Adsr::setAttack(double attack, double sample_rate)
+{
+    if (attack <= 0.0)
+    {
+        attack_ = 1.0;
+    }
+    else
+    {
+        attack_ = 1.0 / (attack * sample_rate);
+    }
+}
+
+void Adsr::setDecay(double decay, double sample_rate)
+{
+    decay_samples_ = decay * sample_rate;
+}
+
+void Adsr::setSustain(double sustain)
+{
+    sustain_ = sustain;
+}
+
+void Adsr::setRelease(double release, double sample_rate)
+{
+    release_samples_ = release * sample_rate;
+}
+
+void Adsr::noteOn()
+{
+    current_value_ = 0.0;
+    current_state_ = AdsrState::Attack;
+}
+
+void Adsr::noteOff()
+{
+    current_state_ = AdsrState::Release;
+    release_ = (release_samples_ > 0) ? current_value_ / release_samples_ : current_value_;
+}
+
+double Adsr::process()
+{
+    switch (current_state_)
+    {
+    case AdsrState::Idle:
+        return 0.0;
+    case AdsrState::Attack:
+        if (current_value_ >= 1.0)
+        {
+            current_state_ = AdsrState::Decay;
+            current_value_ = 1.0;
+            if (decay_samples_ <= 0) {
+                decay_ = 1.0;
+            }
+            else {
+                decay_ = (1.0 - sustain_) / decay_samples_;
+            }
+        }
+        else
+        {
+            current_value_ += attack_;
+        }
+        break;
+    case AdsrState::Decay:
+        if (current_value_ <= sustain_)
+        {
+            current_value_ = sustain_;
+            current_state_ = AdsrState::Sustain;
+        }
+        else
+        {
+            current_value_ -= decay_;
+        }
+        break;
+    case AdsrState::Sustain:
+        current_value_ = sustain_;
+        return sustain_;
+    case AdsrState::Release:
+    {
+        if (current_value_ <= 0.0)
+        {
+            current_value_ = 0.0;
+            current_state_ = AdsrState::Idle;
+        }
+        else
+        {
+            current_value_ -= release_;
+        }
+        break;
+    }
+    }
+
+    return current_value_;
+}
+
+AdsrState Adsr::getState() {
+    return current_state_;
+}
