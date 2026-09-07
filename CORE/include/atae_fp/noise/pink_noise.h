@@ -4,7 +4,7 @@
 class PinkNoise {
 public:
 	void setSampleRate(double sample_rate);
-	AudioBuffer generate(const double duration_s);
+	AudioBuffer generate(double duration_s);
 private:
 	const int NUM_ROWS = 20;
 	double sample_rate_ = 44100.0;
