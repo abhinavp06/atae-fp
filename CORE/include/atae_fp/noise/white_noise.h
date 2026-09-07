@@ -7,7 +7,6 @@
 class WhiteNoise {
 public:
 	void setSampleRate(double sample_rate);
-	void setAmplitude(double amplitude);
 	AudioBuffer generate(const double duration_s);
 
 	WhiteNoise()
@@ -21,7 +20,6 @@ public:
 	}
 private:
 	double sample_rate_ = 44100.0;
-	double amplitude_ = 1.0;
 	std::mt19937 engine_;
 	std::uniform_real_distribution<double> dist_{ -1.0, 1.0 };
 	AudioBuffer buffer_;

@@ -16,7 +16,7 @@ AudioBuffer WhiteNoise::generate(const double duration_s) {
 
 
 	for (int i = 0; i < sample_count; i++) {
-		buffer_.samples.push_back(dist_(engine_) * amplitude_);
+		buffer_.samples.push_back(dist_(engine_));
 	}
 
 	return buffer_;
