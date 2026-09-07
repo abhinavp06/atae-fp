@@ -21,7 +21,3 @@ AudioBuffer WhiteNoise::generate(const double duration_s) {
 
 	return buffer_;
 }
-
-double WhiteNoise::generateSample() {
-	return dist_(engine_) * amplitude_;
-}
