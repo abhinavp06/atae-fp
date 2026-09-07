@@ -8,6 +8,7 @@ class WhiteNoise {
 public:
 	void setSampleRate(double sample_rate);
 	AudioBuffer generate(const double duration_s);
+	double processSample();
 
 	WhiteNoise()
 		: engine_(
