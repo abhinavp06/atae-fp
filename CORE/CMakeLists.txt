@@ -40,6 +40,7 @@ add_library (atae_fp
 
     # NOISE
     src/noise/white_noise.cpp
+    src/noise/pink_noise.cpp
     
     #MIXER
     src/mixer/mixer.cpp
