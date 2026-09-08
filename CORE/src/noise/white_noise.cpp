@@ -4,10 +4,6 @@ void WhiteNoise::setSampleRate(double sample_rate) {
 	sample_rate_ = sample_rate;
 }
 
-void WhiteNoise::setAmplitude(double amplitude) {
-	amplitude_ = amplitude;
-}
-
 AudioBuffer WhiteNoise::generate(const double duration_s) {
 	int sample_count = static_cast<int>(sample_rate_ * duration_s);
 	
