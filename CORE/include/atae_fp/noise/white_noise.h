@@ -9,7 +9,6 @@ public:
 	void setSampleRate(double sample_rate);
 	double processSample();
 	AudioBuffer generate(const double duration_s);
-	double processSample();
 
 	WhiteNoise()
 		: engine_(

@@ -1,5 +1,6 @@
 #include <atae_fp/noise/pink_noise.h>
 #include <cmath>
+//#include <iostream>
 
 void PinkNoise::setSampleRate(double sample_rate) {
 	sample_rate_ = sample_rate;
@@ -54,7 +55,7 @@ AudioBuffer PinkNoise::generate(const double duration_s) {
 
 		// naive loop to check for highest power of two
 		int j = 0;
-		while ((std::pow(2, j)) < i) {
+		while ((std::pow(2, j)) <= i) {
 			j++;
 		}
 
@@ -62,11 +63,13 @@ AudioBuffer PinkNoise::generate(const double duration_s) {
 		double row_sum = 0.0;
 		for (int k = 0; k < j; k++) {
 			row_sum += rows[k];
+			rows[k] = white_noise_.processSample();
 		}
 
 		// normalize this sum
 		// normalize by NUM_ROWS or j?
 		row_sum /= NUM_ROWS;
+		//std::cout << row_sum << std::endl;
 
 		result_buffer.samples.push_back(row_sum);
 	}
