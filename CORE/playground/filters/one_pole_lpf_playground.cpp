@@ -12,7 +12,6 @@ int main() {
 
     WhiteNoise noise;
     noise.setSampleRate(SAMPLE_RATE);
-    noise.setAmplitude(1.0);
     AudioBuffer buffer = noise.generate(5.0);
 
     AudioFile output;

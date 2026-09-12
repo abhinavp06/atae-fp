@@ -19,7 +19,6 @@ int main() {
 
     WhiteNoise white_noise;
     white_noise.setSampleRate(SAMPLE_RATE);
-    white_noise.setAmplitude(0.2);
     AudioBuffer noise_buffer = white_noise.generate(DURATION_S);
     inputs.push_back({noise_buffer, 1.0});
 

@@ -22,6 +22,11 @@ target_link_libraries(white_noise_playground PRIVATE atae_fp)
 target_compile_definitions(white_noise_playground PRIVATE 
     OUTPUT_DIR="${ATAE_FP_OUTPUT_DIR}")
 
+add_executable(pink_noise_playground "noise/pink_noise_playground.cpp")
+target_link_libraries(pink_noise_playground PRIVATE atae_fp)
+target_compile_definitions(pink_noise_playground PRIVATE 
+    OUTPUT_DIR="${ATAE_FP_OUTPUT_DIR}")
+
 # MIXER
 add_executable(mixer_playground "mixer/mixer_playground.cpp")
 target_link_libraries(mixer_playground PRIVATE atae_fp)
